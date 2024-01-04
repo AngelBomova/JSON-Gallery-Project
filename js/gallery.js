@@ -33,6 +33,21 @@ function animate() {
 /************* DO NOT TOUCH CODE ABOVE THIS LINE ***************/
 
 function swapPhoto() {
+
+	if(mCurrentIndex >= mImages.length)
+	{
+		mCurrentIndex = 0;
+	}
+
+	if(mCurrentIndex < 0) {
+		mCurrentIndex = mImages.length-1;
+	}
+
+	document.getElementById('photo').src = mImages[mCurrentIndex].img;
+	var loc = document.getElementsByClassName('location');
+	loc[0].innerHTML = "Location: " + mImages[mCurrentIndex].location;
+	var des = document.getElementsByClassName('description');
+	des[0].innerHTML = "Description: " + mImages[mCurrentIndex].description;
 	//Add code here to access the #slideShow element.
 	//Access the img element and replace its source
 	//with a new image from your images array which is loaded 
@@ -54,7 +69,20 @@ var mJson;
 
 // URL for the JSON to load by default
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
-var mUrl = 'insert_url_here_to_image_json';
+var mUrl = 'images.json';
+
+function fetchJSON() 
+{
+	mRequest.onreadystatechange = function() {
+		console.log("on ready state change");
+		if(this.readyState == 4 && this.status == 200) {
+mJson = JSON.parse(mRequest.responseText);
+iterateJSON(mJson);
+		}
+	}
+	mRequest.open("GET", mUrl, true);
+	mRequest.send();
+}
 
 
 //You can optionally use the following function as your event callback for loading the source of Images from your json data (for HTMLImageObject).
@@ -79,16 +107,14 @@ window.addEventListener('load', function() {
 
 }, false);
 
-function GalleryImage() {
 	//implement me as an object to hold the following data about an image:
-	function GalleryImage(location, description, date, img) {
-		this.location = location;
-		this.description = description;
-		this.date = date;
-		this.img = img;
-	  }
 	//1. location where photo was taken
 	//2. description of photo
 	//3. the date when the photo was taken
 	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
-}
+	function GalleryImage(location, description, date, img) {
+var location;
+var description;
+var date;
+var img;
+	  };
