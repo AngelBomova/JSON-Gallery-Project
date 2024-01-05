@@ -48,12 +48,17 @@ function swapPhoto() {
 	loc[0].innerHTML = "Location: " + mImages[mCurrentIndex].location;
 	var des = document.getElementsByClassName('description');
 	des[0].innerHTML = "Description: " + mImages[mCurrentIndex].description;
+	var dt = document.getElementsByClassName('date');
+	dt[0].innerHTML = "Date: " + mImages[mCurrentIndex].date;
+
+mLastFrameTime = 0;
+mCurrentIndex += 1;
+}
 	//Add code here to access the #slideShow element.
 	//Access the img element and replace its source
 	//with a new image from your images array which is loaded 
 	//from the JSON string
 	console.log('swap photo');
-}
 
 // Counter for the mImages array
 var mCurrentIndex = 0;
@@ -64,6 +69,31 @@ var mRequest = new XMLHttpRequest();
 // Array holding GalleryImage objects (see below).
 var mImages = [];
 
+function iterateJSON(mJson)
+{
+	for( x = 0; x < mJson.images.length; x++ )
+	{
+		mImages[x] = new GalleryImage();
+		mImages[x].location = mJson.images[x].imgLocation;
+		mImages[x].description = mJson.images[x].description;
+		mImages[x].date = mJson.images[x].date;
+		mImages[x].img = mJson.images[x].imgPath;
+	}
+}
+
+function toggleDetails()
+{
+	if($(".moreIndicator").hasClass("rot90"))
+	{
+		$( ".moreIndicator" ).removeClass("rot90");
+		$(".moreIndicator").addClass("rot270");
+	}
+	else {
+		$( ".moreIndicator" ).removeClass("rot270");
+		$(".moreIndicator").addClass("rot90");
+	}
+	$( ".details" ).slideToggle( "slow", "linear" );
+}
 // Holds the retrived JSON information
 var mJson;
 
