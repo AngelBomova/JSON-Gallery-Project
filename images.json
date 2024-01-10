@@ -73,6 +73,12 @@
             "date": "01/12/2016"
         },
         {
+            "imgPath": "img/places/tiltedtowers.jpg",
+            "imgLocation": "Fortnite",
+            "description": "Tilted Towers",
+            "date": "12/20/2018"
+        },
+        {
             "imgPath": "img/places/turkey.jpg",
             "imgLocation": "Turkey",
             "description": "Istanbul",
