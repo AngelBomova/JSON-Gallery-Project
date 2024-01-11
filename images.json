@@ -79,6 +79,18 @@
             "date": "12/20/2018"
         },
         {
+            "imgPath": "img/places/jaysontatum1.jpg",
+            "imgLocation": "Jayson Tatum",
+            "description": "idk it's Jayson Tatum",
+            "date": "He's only 19!!1!"
+        },
+        {
+            "imgPath": "img/places/saturn.jpg",
+            "imgLocation": "Saturn",
+            "description": "Rings",
+            "date": "Year 3000"
+        },
+        {
             "imgPath": "img/places/turkey.jpg",
             "imgLocation": "Turkey",
             "description": "Istanbul",
