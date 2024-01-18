@@ -91,6 +91,12 @@
             "date": "Year 3000"
         },
         {
+            "imgPath": "img/places/yomyhouse.jpg",
+            "imgLocation": "NJ",
+            "description": "Cool house...",
+            "date": "12/10/2023"
+        },
+        {
             "imgPath": "img/places/turkey.jpg",
             "imgLocation": "Turkey",
             "description": "Istanbul",
